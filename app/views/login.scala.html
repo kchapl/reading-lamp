@@ -1,0 +1,6 @@
+@(implicit request: RequestHeader)
+
+@main("Login") {
+  <h1>Login</h1>
+  <a href="@routes.AuthController.login()">Sign in with Google</a>
+}

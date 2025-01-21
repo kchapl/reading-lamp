@@ -1,0 +1,18 @@
+@(bookForm: Form[BookForm])(implicit request: RequestHeader)
+
+@main("Book Reading History") {
+  <h1>Book Reading History</h1>
+
+  @helper.form(action = routes.ApplicationController.submit()) {
+    @helper.inputText(bookForm("isbn"), '_label -> "ISBN")
+    @helper.inputDate(bookForm("startDate"), '_label -> "Start Date")
+    <button type="submit">Add Book</button>
+  }
+
+  <h2>Books Read</h2>
+  <ul>
+    @for(book <- books) {
+      <li>@book.isbn - @book.startDate</li>
+    }
+  </ul>
+}
