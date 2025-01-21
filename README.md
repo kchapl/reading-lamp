@@ -1,2 +1,1 @@
-# reading-lamp
-A Scala Play web app for recording book reading history
+This repository is empty. Any task executed on it should be considered a new capability and needs to be created.
