@@ -33,3 +33,16 @@ This is a Scala Play web application for recording book reading history. The web
 3. Configure environment variables for Google Sign-In and database connection in the Render.com dashboard.
 
 4. Deploy the application and access it via the provided URL.
+
+## Environment variables
+
+The following environment variables need to be set for the application to run:
+
+* `GOOGLE_CLIENT_ID`: Your Google client ID.
+* `GOOGLE_CLIENT_SECRET`: Your Google client secret.
+* `GOOGLE_REDIRECT_URI`: Your Google redirect URI.
+* `DB_URL`: The URL of your database.
+* `DB_USERNAME`: The username for your database.
+* `DB_PASSWORD`: The password for your database.
+
+You can set these environment variables in your deployment environment or in a `.env` file for local development.

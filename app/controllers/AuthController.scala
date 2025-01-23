@@ -9,6 +9,7 @@ import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport
 import com.google.api.client.json.jackson2.JacksonFactory
 import scala.concurrent.{ExecutionContext, Future}
 import models.User
+import scala.concurrent.ExecutionContext.Implicits.global
 
 @Singleton
 class AuthController @Inject()(cc: ControllerComponents)(implicit ec: ExecutionContext) extends AbstractController(cc) {
@@ -16,9 +17,9 @@ class AuthController @Inject()(cc: ControllerComponents)(implicit ec: ExecutionC
   private val jsonFactory = JacksonFactory.getDefaultInstance
   private val httpTransport = GoogleNetHttpTransport.newTrustedTransport
 
-  private val clientId = "your_google_client_id"
-  private val clientSecret = "your_google_client_secret"
-  private val redirectUri = "http://localhost:9000/authCallback"
+  private val clientId = sys.env.getOrElse("GOOGLE_CLIENT_ID", "your_google_client_id")
+  private val clientSecret = sys.env.getOrElse("GOOGLE_CLIENT_SECRET", "your_google_client_secret")
+  private val redirectUri = sys.env.getOrElse("GOOGLE_REDIRECT_URI", "http://localhost:9000/authCallback")
 
   private val flow = new GoogleAuthorizationCodeFlow.Builder(
     httpTransport,
@@ -45,6 +46,9 @@ class AuthController @Inject()(cc: ControllerComponents)(implicit ec: ExecutionC
           // For now, just print it to the console
           println(s"User info: $user")
           Redirect(routes.ApplicationController.index).withSession("userId" -> user.id)
+        }.recover {
+          case ex: Exception =>
+            Redirect(routes.ApplicationController.index).flashing("error" -> "Authentication failed")
         }
       case None =>
         Future.successful(Redirect(routes.ApplicationController.index).flashing("error" -> "Authentication failed"))
