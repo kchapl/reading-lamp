@@ -24,7 +24,7 @@ class ApplicationController @Inject()(cc: ControllerComponents)(implicit ec: Exe
   }
 
   def submit = Action { implicit request: Request[AnyContent] =>
-    bookForm.bindFromRequest.fold(
+    bookForm.bindFromRequest().fold(
       formWithErrors => {
         BadRequest(views.html.index(formWithErrors))
       },
@@ -39,3 +39,9 @@ class ApplicationController @Inject()(cc: ControllerComponents)(implicit ec: Exe
 }
 
 case class BookForm(isbn: String, startDate: java.time.LocalDate, userId: String)
+
+object BookForm {
+  def unapply(bookForm: BookForm): Option[(String, java.time.LocalDate, String)] = {
+    Some((bookForm.isbn, bookForm.startDate, bookForm.userId))
+  }
+}
