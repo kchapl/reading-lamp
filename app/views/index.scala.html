@@ -4,8 +4,8 @@
   <h1>Book Reading History</h1>
 
   @helper.form(action = routes.ApplicationController.submit()) {
-    @helper.inputText(bookForm("isbn"), '_label -> "ISBN")
-    @helper.inputDate(bookForm("startDate"), '_label -> "Start Date")
+    @helper.inputText(bookForm("isbn"), "_label" -> "ISBN")
+    @helper.inputDate(bookForm("startDate"), "_label" -> "Start Date")
     <button type="submit">Add Book</button>
   }
 
