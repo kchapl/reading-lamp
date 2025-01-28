@@ -12,3 +12,6 @@ POST    /submit                     controllers.ApplicationController.submit
 GET     /login                      controllers.AuthController.login
 GET     /logout                     controllers.AuthController.logout
 GET     /authCallback               controllers.AuthController.authCallback
+
+# Assets
+GET     /assets/*file              controllers.Assets.versioned(path="/public", file: Asset)

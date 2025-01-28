@@ -1,11 +1,13 @@
-@(bookForm: Form[BookForm], books: Seq[Book])(implicit request: RequestHeader)
+@(bookForm: Form[BookForm], books: Seq[Book])(implicit request: MessagesRequestHeader)
+
+@import views.html.helper.Implicits._
 
 @main("Book Reading History") {
   <h1>Book Reading History</h1>
 
-  @helper.form(action = routes.ApplicationController.submit()) {
-    @helper.inputText(bookForm("isbn"), "_label" -> "ISBN")
-    @helper.inputDate(bookForm("startDate"), "_label" -> "Start Date")
+  @helper.form(action = routes.ApplicationController.submit) {
+    @helper.inputText(bookForm("isbn"), Symbol("_label") -> "ISBN")
+    @helper.inputDate(bookForm("startDate"), Symbol("_label") -> "Start Date")
     <button type="submit">Add Book</button>
   }
 

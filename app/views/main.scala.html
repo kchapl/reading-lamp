@@ -10,16 +10,16 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="@routes.ApplicationController.index()">Book Reading History</a>
+      <a class="navbar-brand" href="@routes.ApplicationController.index">Book Reading History</a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           @if(request.session.get("userId").isDefined) {
             <li class="nav-item">
-              <a class="nav-link" href="@routes.AuthController.logout()">Logout</a>
+              <a class="nav-link" href="@routes.AuthController.logout">Logout</a>
             </li>
           } else {
             <li class="nav-item">
-              <a class="nav-link" href="@routes.AuthController.login()">Login</a>
+              <a class="nav-link" href="@routes.AuthController.login">Login</a>
             </li>
           }
         </ul>
