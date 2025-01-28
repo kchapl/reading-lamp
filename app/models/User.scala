@@ -1,7 +1,7 @@
 package models
 
 case class User(
-  id: String,
-  name: String,
-  email: String
+    id: String,
+    name: String,
+    email: String
 )
