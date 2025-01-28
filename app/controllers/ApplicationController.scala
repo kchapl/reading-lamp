@@ -9,13 +9,14 @@ import models.{Book, User}
 import scala.concurrent.ExecutionContext
 
 @Singleton
-class ApplicationController @Inject()(cc: ControllerComponents)(implicit ec: ExecutionContext) extends AbstractController(cc) {
+class ApplicationController @Inject() (cc: ControllerComponents)(implicit ec: ExecutionContext)
+    extends AbstractController(cc) {
 
   val bookForm: Form[BookForm] = Form(
     mapping(
-      "isbn" -> nonEmptyText,
+      "isbn"      -> nonEmptyText,
       "startDate" -> localDate,
-      "userId" -> nonEmptyText
+      "userId"    -> nonEmptyText
     )(BookForm.apply)(BookForm.unapply)
   )
 
