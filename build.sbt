@@ -3,7 +3,7 @@ lazy val root = (project in file("."))
   .settings(
     name         := "reading-lamp",
     version      := "1.0",
-    scalaVersion := "3.3.4",
+    scalaVersion := "3.3.5",
     libraryDependencies ++= Seq(
       guice,
       "com.google.oauth-client" % "google-oauth-client"         % "1.37.0",
