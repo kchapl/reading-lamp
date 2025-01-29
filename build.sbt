@@ -6,7 +6,7 @@ lazy val root = (project in file("."))
     scalaVersion := "3.3.4",
     libraryDependencies ++= Seq(
       guice,
-      "com.google.oauth-client" % "google-oauth-client"         % "1.34.1",
+      "com.google.oauth-client" % "google-oauth-client"         % "1.37.0",
       "com.google.http-client"  % "google-http-client-jackson2" % "1.45.3",
       "org.scalatestplus.play" %% "scalatestplus-play"          % "7.0.1" % Test,
       "com.google.api-client"   % "google-api-client"           % "2.0.1",
