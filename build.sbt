@@ -9,7 +9,7 @@ lazy val root = (project in file("."))
       "com.google.oauth-client" % "google-oauth-client"         % "1.34.1",
       "com.google.http-client"  % "google-http-client-jackson2" % "1.43.3",
       "org.scalatestplus.play" %% "scalatestplus-play"          % "7.0.1" % Test,
-      "com.google.api-client"   % "google-api-client"           % "2.0.0",
+      "com.google.api-client"   % "google-api-client"           % "2.0.1",
       "com.google.oauth-client" % "google-oauth-client-jetty"   % "1.34.1",
       "com.google.apis"         % "google-api-services-oauth2"  % "v2-rev157-1.25.0"
     ),
