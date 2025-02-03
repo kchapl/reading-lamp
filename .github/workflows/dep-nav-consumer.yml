@@ -1,0 +1,19 @@
+name: Consume Dependency Navigation Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  my_job:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run custom action
+        uses: kchapl/dependency-navigation@main
