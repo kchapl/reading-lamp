@@ -2,16 +2,16 @@
 
 @import views.html.helper.Implicits._
 
-@main("Book Reading History") {
-  <h1>Book Reading History</h1>
+@main("History") {
+  <h1>History</h1>
 
   @helper.form(action = routes.ApplicationController.submit) {
     @helper.inputText(bookForm("isbn"), Symbol("_label") -> "ISBN")
-    @helper.inputDate(bookForm("startDate"), Symbol("_label") -> "Start Date")
+    @helper.inputDate(bookForm("startDate"), Symbol("_label") -> "Started")
     <button type="submit">Add Book</button>
   }
 
-  <h2>Books Read</h2>
+  <h2>Read</h2>
   <ul>
     @for(book <- books) {
       <li>@book.isbn - @book.startDate</li>
